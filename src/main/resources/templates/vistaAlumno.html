@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Proyecto Web con Spring Boot</h1>
+	
+	<p th:text ="${nombre}">
+	
+	<hr/>
+	
+	<p th:text ="${atribAlumno.apPaterno} + ' ' + ${atribAlumno.apMaterno} + ', ' + ${atribAlumno.nombres}">
+	
+	<hr/>
+	
+	<table>
+		<thead></thead>
+		<tbody>
+				<tr th:each = "alumno : ${listAlumnos}">
+					<td th:text="${alumno.id}"></td>
+					<td th:text="${alumno.apPaterno}"></td>
+					<td th:text="${alumno.apMaterno}"></td>
+					<td th:text="${alumno.nombres}"></td>
+				</tr>				
+		
+		</tbody>
+	</table>
+	
+</body>
+</html>
