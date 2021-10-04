@@ -1,30 +1,45 @@
 package upn.proyectos.servicios;
 
-import upn.proyecto.entidades.Alumno;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import upn.proyectos.entidades.Alumno;
+import upn.proyectos.repositorio.IAlumnoRepo;
+
+@Service
 public class AlumnoServiceImpl implements IAlumnoService {
 
+	@Autowired
+	IAlumnoRepo alumnoRepo;
+	
 	@Override
 	public void insertaAlumno(Alumno alumno) {
-		// TODO Auto-generated method stub
-		
+		alumnoRepo.save(alumno);		
 	}
 
 	@Override
 	public void actualizaAlumno(Alumno alumno) {
-		// TODO Auto-generated method stub
+		alumnoRepo.save(alumno);
 		
 	}
 
 	@Override
 	public void eliminaAlumno(Integer id) {
-		// TODO Auto-generated method stub
+		alumnoRepo.deleteById(id);
 		
 	}
 
 	@Override
 	public void getAlumno(Integer id) {
-		// TODO Auto-generated method stub
+		alumnoRepo.getById(id);
+		
+	}
+	
+	@Override
+	public List<Alumno> getAlumnos() {
+		return alumnoRepo.findAll();
 		
 	}
 

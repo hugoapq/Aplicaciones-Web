@@ -1,6 +1,6 @@
 package upn.proyectos.servicios;
 
-import upn.proyecto.entidades.Curso;
+import upn.proyectos.entidades.Curso;
 
 public interface ICursoService {
 	public void insertaCurso(Curso curso);

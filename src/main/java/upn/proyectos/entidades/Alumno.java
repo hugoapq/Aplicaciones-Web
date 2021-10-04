@@ -1,17 +1,18 @@
-package upn.proyecto.entidades;
+package upn.proyectos.entidades;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
 @Entity
-public class Alumno {
+public class Alumno { //pojo: plain old java object
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
-	@Column()
 	private String apPaterno;
 	private String apMaterno;
 	private String nombres;
@@ -28,6 +29,13 @@ public class Alumno {
 		this.genero = genero;
 	}
 	
+	
+	public Alumno() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Alumno(String mensaje) {
 		System.out.print(mensaje);
 	}
@@ -79,7 +87,5 @@ public class Alumno {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	
-	
 	
 }

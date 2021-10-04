@@ -1,18 +1,27 @@
-package upn.proyecto.entidades;
+package upn.proyectos.entidades;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="tabla_curso")
 public class Curso {
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
+	@Column(name="nombre_curso", length=25)
 	private String nombre;
-	private String creditos;
+	private int creditos; 
 
 	public Curso() {
 		super();
 	}
 
-	public Curso(Integer id, String nombre, String creditos) {
+	public Curso(Integer id, String nombre, int creditos) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -35,17 +44,17 @@ public class Curso {
 		this.nombre = nombre;
 	}
 
-	public String getCreditos() {
+	public int getCreditos() {
 		return creditos;
 	}
 
-	public void setCreditos(String creditos) {
+	public void setCreditos(int creditos) {
 		this.creditos = creditos;
 	}
-
+ 
 	@Override   //anotaciones
 	public String toString() {
 		return "Curso [id=" + id + ", nombre=" + nombre + ", creditos=" + creditos + "]";
 	}
-		
+	
 }

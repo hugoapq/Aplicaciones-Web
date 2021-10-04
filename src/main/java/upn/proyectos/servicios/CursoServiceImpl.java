@@ -1,7 +1,10 @@
 package upn.proyectos.servicios;
 
-import upn.proyecto.entidades.Curso;
+import org.springframework.stereotype.Service;
 
+import upn.proyectos.entidades.Curso;
+
+@Service
 public class CursoServiceImpl implements ICursoService {
 
 	@Override
