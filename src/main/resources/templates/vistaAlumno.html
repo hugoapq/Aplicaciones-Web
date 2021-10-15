@@ -6,18 +6,21 @@
 </head>
 <body>
 	<h1>Proyecto Web con Spring Boot</h1>
-	
+	<script type="text/javascript">
+		console.log("Solweb 2021")
+	</script>
 	
 	<hr/>
 	
 	<table>
 		<thead></thead>
 		<tbody>
-				<tr th:each = "alumno : ${listAlumnos}">
+				<tr th:each = "alumno : ${listAlumnos}"> 
 					<td th:text="${alumno.id}"></td>
 					<td th:text="${alumno.apPaterno}"></td>
 					<td th:text="${alumno.apMaterno}"></td>
 					<td th:text="${alumno.nombres}"></td>
+					<td th:text="${alumno.facultad.nombre}"></td>
 				</tr>				
 		
 		</tbody>

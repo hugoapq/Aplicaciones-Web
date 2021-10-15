@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import upn.proyectos.entidades.Alumno;
+import upn.proyectos.entidades.Facultad;
 import upn.proyectos.servicios.IAlumnoService;
+import upn.proyectos.servicios.IFacultadService;
 
 
 @Controller
@@ -28,6 +30,9 @@ public class AlumnoController {
 	
 	@Autowired
 	IAlumnoService alumnoService;
+	
+	@Autowired
+	IFacultadService facultadService;
 	
 	@GetMapping(value="/infoAlumno")
 	public String obtenerAlumno(String id, Model model) {
@@ -80,12 +85,18 @@ public class AlumnoController {
 		
 		System.out.println("Insertando alumno");
 		
+		Facultad facultad = new Facultad();
+		facultad.setNombre("Ingenieria");
+		
+		facultadService.insertaFacultad(facultad);
+		
 		Alumno alumno1 = new Alumno();
 		alumno1.setApPaterno("Pretel");
 		alumno1.setApMaterno("Vilchez");
 		alumno1.setNombres("Alberto");
 		alumno1.setGenero("M");
 		alumno1.setFechaNacimiento(new Date());
+		alumno1.setFacultad(facultad);
 		
 		Alumno alumno2 = new Alumno();
 		alumno2.setApPaterno("Aliaga");
@@ -93,7 +104,7 @@ public class AlumnoController {
 		alumno2.setNombres("Luisa");
 		alumno2.setGenero("F");
 		alumno2.setFechaNacimiento(new Date());
-		
+		alumno2.setFacultad(facultad);
 		
 		alumnoService.insertaAlumno(alumno1);
 		alumnoService.insertaAlumno(alumno2);

@@ -2,10 +2,14 @@ package upn.proyectos.entidades;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -16,8 +20,18 @@ public class Alumno { //pojo: plain old java object
 	private String apPaterno;
 	private String apMaterno;
 	private String nombres;
+	@Column(columnDefinition = "default '01/01/2021'")
 	private Date fechaNacimiento;
 	private String genero;
+		
+	@ManyToOne
+	@JoinColumn (name="facultad_id",nullable=false)
+	private Facultad facultad;
+	
+	
+	@OneToOne
+	@JoinColumn (name = "mail_id" , referencedColumnName="id")
+	private Mail mail;
 	
 	public Alumno(Integer id, String apPaterno, String apMaterno, String nombres, Date fechaNacimiento, String genero) {
 		super();
@@ -86,6 +100,16 @@ public class Alumno { //pojo: plain old java object
 
 	public void setGenero(String genero) {
 		this.genero = genero;
+	}
+
+
+	public Facultad getFacultad() {
+		return facultad;
+	}
+
+
+	public void setFacultad(Facultad facultad) {
+		this.facultad = facultad;
 	}
 	
 }
